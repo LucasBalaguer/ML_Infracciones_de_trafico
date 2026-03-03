@@ -2,7 +2,7 @@
 
 ## 📌 Descripción del problema
 
-El objetivo de este proyecto es desarrollar un modelo de Machine Learning capaz de predecir si una infracción de tráfico puede considerarse **grave** o **no grave**, en función de las características del conductor y de la propia infracción.
+El objetivo de este proyecto es desarrollar un modelo de Machine Learning capaz de predecir, cuando un asegurado recibe una multa y la notifica a la aseguradora,  si esa infracción es grave o no, y subir la prima en consecuencia
 
 Desde el punto de vista de negocio, este modelo permitiría:
 
