@@ -118,6 +118,5 @@ En conclusión, la solución desarrollada cumple el objetivo principal de maximi
 **Carlos D'Olhaberriague**  
 - [GitHub](https://github.com/Carlos72293)  
   
-
 **Lucas Cavalcante**  
 - [GitHub](https://github.com/LucasBalaguer)
