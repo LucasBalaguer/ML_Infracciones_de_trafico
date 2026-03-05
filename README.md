@@ -96,17 +96,17 @@ El modelo seleccionado fue **LightGBM optimizado**, con ajuste del umbral de dec
 
 Con el modelo final seleccionado (**LightGBM optimizado + ajuste de umbral**), se obtuvieron los siguientes resultados:
 
-- **Recall (clase grave):** ≈ 0.93  
-- **Accuracy:** (HAY QUE ACTUALIZAR ESTO)  
-- **F1-score:** (HAY QUE ACTUALIZAR ESTO)  
+- **Recall (clase grave):** ≈ 0.64  
+- **Accuracy:** ≈ 0.61 
+- **F1-score:** ≈ 0.69  
 
 ### Interpretación de resultados
 
-- El modelo identifica aproximadamente el **93% de los casos graves reales**.
-- Se prioriza la minimización de **falsos negativos**, ya que no detectar una infracción grave tiene mayor impacto que generar un falso positivo.
-- El modelo es adecuado para contextos donde la detección temprana del riesgo es crítica.
+- El modelo identifica aproximadamente el 64% de los casos graves reales.
+- Se ha priorizado la detección de casos graves mediante el ajuste del umbral de decisión.
+- El modelo constituye una base sólida y funcional sobre la que seguir optimizando el rendimiento.
 
-En conclusión, la solución desarrollada cumple el objetivo principal de maximizar la capacidad de detección de casos graves, manteniendo un equilibrio razonable con el resto de métricas.
+En conclusión, la solución desarrollada cumple el objetivo de construir un modelo operativo y alineado con negocio, aunque todavía presenta oportunidades claras de mejora en la detección de casos graves.
 
 ---
 
@@ -120,3 +120,133 @@ En conclusión, la solución desarrollada cumple el objetivo principal de maximi
   
 **Lucas Cavalcante**  
 - [GitHub](https://github.com/LucasBalaguer)
+
+
+----
+
+
+# 🚦 Traffic Violation Severity Prediction
+
+## 📌 Problem Description
+
+The objective of this project is to develop a Machine Learning model capable of predicting whether a traffic violation is severe or not when an insured driver reports a fine to the insurance company, and adjust the premium accordingly.
+
+From a business perspective, this model would enable:
+
+- Identification of higher-risk profiles.  
+- Prioritization of preventive actions.  
+- Optimization of awareness campaigns.  
+- Support for decision-making in traffic authorities.  
+
+The target variable used is **GRAVEDAD** (SEVERITY), built from the variable `PUNTOS` (points deducted from the driver’s license):
+
+- `0` → Non-severe (≤ 3 points)  
+- `1` → Severe (≥ 4 points)  
+
+---
+
+## 📊 Dataset Used
+
+- **File name:** `dataset_definitivo.csv`  
+- **Format:** CSV  
+- **Type:** Structured dataset  
+- **Source:** Public dataset downloaded from data.gob.es  
+- **Access:** https://datos.gob.es/es/catalogo/e00130502-fichero-de-microdatos-de-sanciones-con-detraccion-de-puntos-2023  
+
+### Preprocessing Performed
+
+- Removal of highly correlated variables or those causing data leakage (`PUNTOS`, `CUANTIA`, etc.).  
+- Conversion of categorical variables into numerical format:
+  - `SEXO` → Binary variable  
+  - `NOVEL` → Binary variable  
+  - `EDAD` → Ordinal encoding by age ranges  
+- Dataset split:
+  - 80% training  
+  - 20% test  
+  - Stratified split based on the target variable  
+
+---
+
+## 🤖 Proposed Solution
+
+The problem is framed as a **supervised binary classification task**.
+
+### Evaluated Models
+
+Several models were compared, prioritizing the **recall** metric, since the main objective is to minimize false negatives (severe cases not detected):
+
+- K-Nearest Neighbors (KNN)  
+- Logistic Regression (with `class_weight="balanced"`)  
+- Random Forest  
+- LightGBM  
+
+### Optimization
+
+- Cross-validation using `StratifiedKFold`  
+- Hyperparameter tuning through:
+  - `GridSearchCV`  
+  - `RandomizedSearchCV`  
+- Manual adjustment of the decision threshold (threshold tuning)  
+
+### Final Model
+
+The selected model was **Optimized LightGBM**, with decision threshold adjustment to maximize recall for the severe class.
+
+---
+
+## 🛠 Technologies Used
+
+### Language
+- Python 3.x  
+
+### Main Libraries
+- pandas  
+- numpy  
+- scikit-learn  
+- lightgbm  
+- xgboost  
+- seaborn  
+- matplotlib  
+- scipy  
+
+### Applied Techniques
+- Data preprocessing  
+- Variable encoding  
+- Feature scaling (`StandardScaler`)  
+- Stratified train/test split  
+- Cross-validation  
+- Hyperparameter optimization  
+- Threshold adjustment  
+- Confusion matrix analysis  
+- Classification report  
+
+---
+
+## 📈 Key Results
+
+With the final selected model (**Optimized LightGBM + threshold adjustment**), the following results were obtained:
+
+- **Recall (severe class):** ≈ 0.64  
+- **Accuracy:** ≈ 0.61  
+- **F1-score:** ≈ 0.69  
+
+### Results Interpretation
+
+- The model correctly identifies approximately **64% of real severe cases**.  
+- Detection of severe cases was prioritized through decision threshold adjustment.  
+- The model provides a solid and functional baseline upon which performance can continue to be optimized.  
+
+In conclusion, the developed solution achieves the objective of building an operational and business-aligned model, although there are still clear opportunities for improvement in detecting severe cases.
+
+---
+
+## 👩‍💻 Authors
+
+**Alba Rodríguez**  
+- GitHub: https://github.com/albarodriguez7  
+
+**Carlos D'Olhaberriague**  
+- GitHub: https://github.com/Carlos72293  
+
+**Lucas Cavalcante**  
+- GitHub: https://github.com/LucasBalaguer  
