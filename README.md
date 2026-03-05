@@ -152,7 +152,7 @@ The target variable used is **GRAVEDAD** (SEVERITY), built from the variable `PU
 - **Format:** CSV  
 - **Type:** Structured dataset  
 - **Source:** Public dataset downloaded from data.gob.es  
-- **Access:** https://datos.gob.es/es/catalogo/e00130502-fichero-de-microdatos-de-sanciones-con-detraccion-de-puntos-2023  
+- **[Acceso](https://datos.gob.es/es/catalogo/e00130502-fichero-de-microdatos-de-sanciones-con-detraccion-de-puntos-2023)** 
 
 ### Preprocessing Performed
 
@@ -244,10 +244,10 @@ In conclusion, the developed solution achieves the objective of building an oper
 ## 👩‍💻 Authors
 
 **Alba Rodríguez**  
-- GitHub: https://github.com/albarodriguez7  
+- [GitHub](https://github.com/albarodriguez7) 
 
 **Carlos D'Olhaberriague**  
-- GitHub: https://github.com/Carlos72293  
-
+- [GitHub](https://github.com/Carlos72293)  
+  
 **Lucas Cavalcante**  
-- GitHub: https://github.com/LucasBalaguer  
+- [GitHub](https://github.com/LucasBalaguer)
